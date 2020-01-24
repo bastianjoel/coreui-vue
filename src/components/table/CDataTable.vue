@@ -22,7 +22,7 @@
         :class="{ 'offset-sm-6': !tableFilter }"
       >
         <div class="form-inline justify-content-sm-end">
-          <label class="mr-2">Items per page:</label>
+          <label class="mr-2">{{paginationSelect.label}}</label>
           <select
             class="form-control"
             @change="paginationChange"
@@ -31,7 +31,7 @@
               {{perPageItems}}
             </option>
             <option
-              v-for="(number, key) in [5,10,20,50]"
+              v-for="(number, key) in paginationSelect.values"
               :val="number"
               :key="key"
             >
@@ -47,7 +47,7 @@
     <div :class="`position-relative ${responsive ? 'table-responsive' : '' }`">
       <table :class="tableClasses">
         <thead>
-          <tr>
+          <tr v-if="header">
             <template v-for="(name, index) in columnNames">
               <th
                 @click="changeSort(rawColumnNames[index], index)"
@@ -188,14 +188,15 @@
       </table>
 
       <slot name="loading" v-if="loading">
-        <div style="position:absolute;left:0;top:0;bottom:0;right:0;background-color:rgb(255,255,255,0.4);">
-          <div style="position:absolute;bottom:50%;left:50%;transform:translateX(-50%);">
-            <CSpinner color="success"/>
-          </div>
-        </div>
+        <CElementCover 
+          :boundaries="[
+            { sides: ['top'], tag: 'TD' },
+            { sides: ['bottom'], tag: 'TBODY' }
+          ]"
+        />
       </slot>
-
     </div>
+    
     <slot name="under-table"/>
 
 
@@ -210,7 +211,7 @@
 </template>
 
 <script>
-import CSpinner from '../spinner/CSpinner'
+import CElementCover from '../element-cover/CElementCover'
 import CPagination from '../pagination/CPagination'
 import CIcon from '@coreui/icons-vue/src/CIconRaw.vue'
 import { cilArrowTop, cilBan } from '@coreui/icons'
@@ -220,7 +221,7 @@ export default {
   icons: { cilArrowTop, cilBan },
   components: {
     CPagination,
-    CSpinner,
+    CElementCover,
     CIcon
   },
   props: {
@@ -244,7 +245,7 @@ export default {
     hover: Boolean,
     border: Boolean,
     outlined: Boolean,
-    itemsPerPageSelect: Boolean,
+    itemsPerPageSelect: [Boolean, Object],
     sorter: [Boolean, Object],
     tableFilter: [Boolean, Object],
     columnFilter: [Boolean, Object],
@@ -254,6 +255,10 @@ export default {
     },
     tableFilterValue: String,
     columnFilterValue: Object,
+    header: {
+      type: Boolean,
+      default: true
+    },
     footer: Boolean,
     loading: Boolean,
     clickableRows: Boolean
@@ -278,8 +283,8 @@ export default {
     sorterValue: {
       immediate: true,
       handler (val) {
-        this.sorterState.column = val.column
-        this.sorterState.asc = val.asc === false ? false : true
+        const asc = val.asc === false ? false : true
+        this.sorterState = Object.assign({}, { asc, column: val.column })
       }
     },
     tableFilterValue (val) {
@@ -410,6 +415,12 @@ export default {
       return {
         label: this.tableFilter.label || 'Filter:',
         placeholder: this.tableFilter.placeholder || 'type string...'
+      }
+    },
+    paginationSelect () {
+      return {
+        label: this.itemsPerPageSelect.label || 'Items per page:',
+        values: this.itemsPerPageSelect.values || [5, 10, 20, 50]
       }
     }
   },

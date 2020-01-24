@@ -80,7 +80,7 @@ describe(ComponentName, () => {
   })
   it('shows loading layer when loading prop is set', () => {
     customWrapper.setProps({ loading: true })
-    expect(customWrapper.contains('.spinner-border')).toBe(true)
+    expect(customWrapper.contains('.spinner-grow')).toBe(true)
     customWrapper.setProps({ loading: false })
   })
   it('emits event when items per page changes', () => {
@@ -172,5 +172,17 @@ describe(ComponentName, () => {
     expect(localWrapper.vm.sorterState.column).toBe(null)
     click(2)
     expect(localWrapper.vm.sorterState.asc).toBe(false)
+  })
+  it('Properly sets itemsPerPageSelect options', () => {
+    const localWrapper = createCustomWrapper()
+
+    localWrapper.setProps({
+      itemsPerPageSelect: {
+        label: 'new label',
+        values: [10, 25, 50]
+      }
+    })
+    expect(localWrapper.vm.paginationSelect.label).toBe('new label')
+    expect(localWrapper.vm.paginationSelect.values[1]).toBe(25)
   })
 })
