@@ -484,7 +484,7 @@
       "offset",
       "placement",
       "flip",
-      "popper-config"
+      "custom-popper-options"
     ],
     "description": ""
   },
@@ -503,7 +503,7 @@
       "offset",
       "placement",
       "flip",
-      "popper-config"
+      "custom-popper-options"
     ],
     "description": ""
   },
@@ -567,6 +567,20 @@
     ],
     "description": ""
   },
+  "CElementCover": {
+    "attributes": [
+      "boundaries",
+      "side"
+    ],
+    "description": ""
+  },
+  "c-element-cover": {
+    "attributes": [
+      "boundaries",
+      "side"
+    ],
+    "description": ""
+  },
   "CEmbed": {
     "attributes": [
       "type",
@@ -602,6 +616,14 @@
       "label",
       "was-validated",
       "is-valid",
+      "add-input-classes",
+      "add-label-classes",
+      "horizontal",
+      "size",
+      "add-wrapper-classes",
+      "custom",
+      "placeholder",
+      "multiple",
       "valid-feedback",
       "invalid-feedback",
       "tooltip-feedback",
@@ -614,6 +636,14 @@
       "label",
       "was-validated",
       "is-valid",
+      "add-input-classes",
+      "add-label-classes",
+      "horizontal",
+      "size",
+      "add-wrapper-classes",
+      "custom",
+      "placeholder",
+      "multiple",
       "valid-feedback",
       "invalid-feedback",
       "tooltip-feedback",
@@ -623,6 +653,9 @@
   },
   "CFormGroup": {
     "attributes": [
+      "append",
+      "prepend",
+      "wrapper-classes",
       "valid-feedback",
       "invalid-feedback",
       "tooltip-feedback",
@@ -632,6 +665,9 @@
   },
   "c-form-group": {
     "attributes": [
+      "append",
+      "prepend",
+      "wrapper-classes",
       "valid-feedback",
       "invalid-feedback",
       "tooltip-feedback",
@@ -651,6 +687,11 @@
       "label",
       "was-validated",
       "is-valid",
+      "add-input-classes",
+      "add-label-classes",
+      "horizontal",
+      "size",
+      "add-wrapper-classes",
       "valid-feedback",
       "invalid-feedback",
       "tooltip-feedback",
@@ -670,6 +711,11 @@
       "label",
       "was-validated",
       "is-valid",
+      "add-input-classes",
+      "add-label-classes",
+      "horizontal",
+      "size",
+      "add-wrapper-classes",
       "valid-feedback",
       "invalid-feedback",
       "tooltip-feedback",
@@ -679,6 +725,16 @@
   },
   "CInputRadio": {
     "attributes": [
+      "append",
+      "prepend",
+      "label",
+      "was-validated",
+      "is-valid",
+      "add-input-classes",
+      "add-label-classes",
+      "checked",
+      "custom",
+      "inline",
       "valid-feedback",
       "invalid-feedback",
       "tooltip-feedback",
@@ -688,6 +744,16 @@
   },
   "c-input-radio": {
     "attributes": [
+      "append",
+      "prepend",
+      "label",
+      "was-validated",
+      "is-valid",
+      "add-input-classes",
+      "add-label-classes",
+      "checked",
+      "custom",
+      "inline",
       "valid-feedback",
       "invalid-feedback",
       "tooltip-feedback",
@@ -697,6 +763,16 @@
   },
   "CInputCheckbox": {
     "attributes": [
+      "append",
+      "prepend",
+      "label",
+      "was-validated",
+      "is-valid",
+      "add-input-classes",
+      "add-label-classes",
+      "checked",
+      "custom",
+      "inline",
       "valid-feedback",
       "invalid-feedback",
       "tooltip-feedback",
@@ -706,6 +782,16 @@
   },
   "c-input-checkbox": {
     "attributes": [
+      "append",
+      "prepend",
+      "label",
+      "was-validated",
+      "is-valid",
+      "add-input-classes",
+      "add-label-classes",
+      "checked",
+      "custom",
+      "inline",
       "valid-feedback",
       "invalid-feedback",
       "tooltip-feedback",
@@ -720,6 +806,16 @@
       "label",
       "was-validated",
       "is-valid",
+      "add-input-classes",
+      "add-label-classes",
+      "horizontal",
+      "size",
+      "add-wrapper-classes",
+      "options",
+      "value",
+      "plaintext",
+      "placeholder",
+      "custom",
       "valid-feedback",
       "invalid-feedback",
       "tooltip-feedback",
@@ -734,6 +830,16 @@
       "label",
       "was-validated",
       "is-valid",
+      "add-input-classes",
+      "add-label-classes",
+      "horizontal",
+      "size",
+      "add-wrapper-classes",
+      "options",
+      "value",
+      "plaintext",
+      "placeholder",
+      "custom",
       "valid-feedback",
       "invalid-feedback",
       "tooltip-feedback",
@@ -743,6 +849,20 @@
   },
   "CTextarea": {
     "attributes": [
+      "append",
+      "prepend",
+      "readonly",
+      "plaintext",
+      "value",
+      "lazy",
+      "label",
+      "was-validated",
+      "is-valid",
+      "add-input-classes",
+      "add-label-classes",
+      "horizontal",
+      "size",
+      "add-wrapper-classes",
       "valid-feedback",
       "invalid-feedback",
       "tooltip-feedback",
@@ -752,6 +872,20 @@
   },
   "c-textarea": {
     "attributes": [
+      "append",
+      "prepend",
+      "readonly",
+      "plaintext",
+      "value",
+      "lazy",
+      "label",
+      "was-validated",
+      "is-valid",
+      "add-input-classes",
+      "add-label-classes",
+      "horizontal",
+      "size",
+      "add-wrapper-classes",
       "valid-feedback",
       "invalid-feedback",
       "tooltip-feedback",
@@ -760,11 +894,27 @@
     "description": ""
   },
   "CCol": {
-    "attributes": [],
+    "attributes": [
+      "col",
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "tag"
+    ],
     "description": ""
   },
   "c-col": {
-    "attributes": [],
+    "attributes": [
+      "col",
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "tag"
+    ],
     "description": ""
   },
   "CContainer": {
@@ -1663,14 +1813,9 @@
       "border",
       "outlined",
       "options-row",
+      "header",
       "footer",
-      "sorter",
-      "column-filter",
-      "table-filter",
-      "sorter-value",
-      "table-filter-value",
-      "column-filter-value",
-      "loading"
+      "items-per-page-select"
     ],
     "description": ""
   },
@@ -1692,14 +1837,9 @@
       "border",
       "outlined",
       "options-row",
+      "header",
       "footer",
-      "sorter",
-      "column-filter",
-      "table-filter",
-      "sorter-value",
-      "table-filter-value",
-      "column-filter-value",
-      "loading"
+      "items-per-page-select"
     ],
     "description": ""
   },
